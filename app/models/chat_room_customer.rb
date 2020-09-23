@@ -1,0 +1,2 @@
+class ChatRoomCustomer < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class ChatRoomMessage < ApplicationRecord
+end

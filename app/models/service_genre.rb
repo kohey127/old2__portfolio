@@ -1,0 +1,2 @@
+class ServiceGenre < ApplicationRecord
+end
