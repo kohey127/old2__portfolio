@@ -24,26 +24,6 @@ ActiveRecord::Schema.define(version: 2020_09_23_195413) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "chat_room_customers", force: :cascade do |t|
-    t.integer "customer_id"
-    t.integer "chat_room_id"
-    t.string "message", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "chat_room_messages", force: :cascade do |t|
-    t.integer "customer_id"
-    t.integer "chat_room_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "chat_rooms", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "comments", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "service_id"
@@ -100,6 +80,26 @@ ActiveRecord::Schema.define(version: 2020_09_23_195413) do
     t.integer "customer_id"
     t.integer "service_id"
     t.integer "status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "room_customers", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "room_messages", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "room_id"
+    t.string "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

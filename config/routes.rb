@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => '/cable'
   devise_for :admin, controllers: {
     sessions: 'admin/sessions',
   }
@@ -24,5 +25,7 @@ Rails.application.routes.draw do
     put 'customers/withdraw' => 'customers#withdraw'
 
     resources :services, only: [:index, :edit, :update, :show, :destory]
+
+    get 'rooms/show' => 'room_messages#show'
   end
 end
